@@ -1,14 +1,35 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width">
-	<title>Lively Wallpaper</title>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Lively Wallpaper</title>
+    <!--plugins-->
+    <link href="assets/plugins/simplebar/css/simplebar.css" rel="stylesheet" />
+    <link href="assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet" />
+    <link href="assets/plugins/metismenu/css/metisMenu.min.css" rel="stylesheet" />
+    <!-- Bootstrap CSS -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/css/bootstrap-extended.css" rel="stylesheet" />
+    <link href="assets/css/style.css" rel="stylesheet" />
+    <link href="assets/css/icons.css" rel="stylesheet">
     <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
-
-	<link href="style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    
+    <!-- loader-->
+    <link href="assets/css/pace.min.css" rel="stylesheet" />
+    
+    
+    <!--Theme Styles-->
+    <link href="assets/css/dark-theme.css" rel="stylesheet" />
+    <link href="assets/css/light-theme.css" rel="stylesheet" />
+    <link href="assets/css/semi-dark.css" rel="stylesheet" />
+    <link href="assets/css/header-colors.css" rel="stylesheet" />
+    <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    
+    <link href="style.css" rel="stylesheet">
 
 <style>
 .grid {
@@ -32,10 +53,22 @@
 			</a>
 		</div>
 
-		<button class="navbtn">
+		<button class="navbtn" onClick="document.querySelector('html').classList.toggle('open')
+		">	
+		<!-- 모바일화면에서 햄버거버튼 Tap이벤트 -->
 			<i class="fas fa-bars"></i>
+			<i class="fas fa-times"></i>
 			<span class="sr-only">MENU</span>
 		</button>
+
+		<nav class="nav">
+			<ul>
+			   <li><a href="index.html">홈</a></li>
+			   <li><a href="article.html">서비스</a></li>
+			   <li><a href="#">문의</a></li>            
+			</ul>
+		 </nav>
+
 	</div>
 </header>
 <section class="hero">

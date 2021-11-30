@@ -65,8 +65,7 @@ body {
     position: relative;
 }
 
-/* 네비게이션 버튼 */
-.navbtn, .searchbtn {
+.navbtn {
 	padding: 0;
 	outline: none;
 	border: none;
@@ -76,10 +75,72 @@ body {
 	font-size: 30px;
 }
 
-.searchbtn {
-    margin: 0 10px;
+.open .navbtn {
+	z-index: 110;
+	color: #ffffff;
 }
 
+.navbtn .fa-bars {
+	display: revert;
+}
+.open .navbtn .fa-bars {
+	display: none;
+}
+
+.navbtn .fa-times {
+	display: none;
+}
+.open .navbtn .fa-times {
+	display: revert;
+}
+
+@media (min-width: 768px) {
+	.navbtn {
+		display: none;
+	}
+}
+
+/* 네비게이션 - 메뉴  */
+
+@media (max-width: 767px) {
+	.nav {
+		position: fixed;
+		inset: 0 -100% 0 100%;
+		z-index: 100;
+		background-color: #4e483ae6;
+		transition: transform 0.5s;
+	}
+
+	.open .nav {
+		transform: translate(-100%, 0);
+	}
+
+	.open body {
+		position: fixed;
+		overflow: hidden;
+		/* 스크롤 방지 */
+	}
+
+	.nav ul {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		height: 100%;
+		gap: 40px;
+		color: #ffffff;
+	}
+}
+
+/* 네비게이션메뉴：PC */
+
+@media (min-width: 768px) {
+	.nav ul {
+		display: flex;
+		gap: 40px;
+		color: #707070;
+	}
+}
 
 .hero {
     height: 650px;
