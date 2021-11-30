@@ -1,0 +1,425 @@
+@charset "UTF-8";
+
+:root {
+	--v-space: clamp(90px, 9vw, 120px);
+}
+
+body {
+	margin: 0;
+	background-color: #eeeeee;
+	color: #222222;
+	font-family: 'Spoqa Han Sans Neo', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, p, figure, ul {
+	/*표준삽입여백을 없앰*/
+	margin: 0;
+	padding: 0;
+	list-style: none; /*ul태그앞의 점을 없앰*/
+}
+
+p {
+	line-height: 1.8;
+}
+
+a {
+	color: inherit; /*부모요소와 같은색을 씀*/
+	text-decoration: none;  /*하이퍼링크 기본값(밑줄)을 제거*/
+}
+
+a:hover {
+	filter: brightness(90%) contrast(120%);
+}
+
+img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+/* html {
+	overflow-x: hidden;
+}
+body {
+	overflow: hidden;
+} */
+
+/* 헤더 */
+.header {
+	position: sticky;
+  	top: 0;
+	z-index: 10;
+	height: clamp(60px, 6vw, 112px);
+	background-color: #ffffff;
+}
+
+.width .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+.w-container {
+    width: min(92%, 1166px);
+    margin: auto;
+    position: relative;
+}
+
+/* 네비게이션 버튼 */
+.navbtn, .searchbtn {
+	padding: 0;
+	outline: none;
+	border: none;
+	background: transparent;
+	cursor: pointer;
+	color: #aaaaaa;
+	font-size: 30px;
+}
+
+.searchbtn {
+    margin: 0 10px;
+}
+
+
+.hero {
+    height: 650px;
+    background-image: url(img/Ev5bffKWYAA71-2.jpg);
+    background-position: center;
+    background-size: cover; /*섹션크기(height:650px)에 맞춤*/
+}
+.hero-container {
+    display: grid;
+    justify-items: center;  /*좌우*/
+    align-content: center;  /*상하*/
+    /*수식어 content: 전체 요소들을 하나의 묶음으로(frame) items: 알맹이*/ 
+    height: 100%;   /* hero의 height 650px 전체를 사용*/
+}
+.hero h1 {
+    margin-bottom: 42px;
+    font-family: 'Spoqa Han Sans Neo', sans-serif;
+    font-size: clamp(48px, 5vw, 68px);  /*기준값보다 적으면 최소48px, 크면 최대 68px*/
+    /*1vw는 전체화면너비(높이는 vh)의 1%(너비가 1366px면 5vw = 68.3px)*/
+    font-weight: 400;
+    text-align: center;
+    line-height: 1.3;
+
+}
+.hero p {
+    margin-bottom: 72px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.3;
+}
+
+.btn {  
+    display: block; /*block - border-box 연계*/
+    width: 260px;
+    padding: 10px;
+    box-sizing: border-box;	/*보더(테두리)까지 포함된 길이로 계산(마진은 제외)*/
+    border-radius: 4px;
+    background-color: #127fd8;
+    color: white;
+    font-size: 18px;
+    text-align: center;
+    text-shadow: 0 0 6px #00000052;
+}
+
+.btn-accent {
+	display: block; /*block - border-box 연계*/
+    width: 260px;
+    padding: 10px;
+    box-sizing: border-box;	/*보더(테두리)까지 포함된 길이로 계산(마진은 제외)*/
+    border-radius: 4px;
+    background-color: #c9418c;
+    color: white;
+    font-size: 18px;
+    text-align: center;
+    text-shadow: 0 0 6px #00000052;
+}
+
+/* 이미지와 텍스트 */
+.imgtext {
+	padding: var(--v-space) 0;
+	background-color: #ffffff;
+}
+.imgtext + .imgtext {	/*두 imgtext 사이에 2개의 padding 존재. 하나로 줄임*/
+	padding-top: 0;
+}
+.imgtext-container {
+	display: flex;
+	flex-direction: column;
+	gap: clamp(45px, 6vw, 80px)
+}
+/* .imgtext-container.reverse {	/*모바일에서의 배치순서: text-img-img-text
+	flex-direction: column-reverse;
+} */
+
+@media (min-width: 768px) {	/*pc에서의 규격 따로 설정*/
+	.imgtext-container {
+	flex-direction: row;
+	align-items: center;
+	}
+	.imgtext-container.reverse {
+		flex-direction: row-reverse;
+	}
+	.imgtext-container > .text {
+	flex: 1;	/*text : img = 1 : 2 배율*/
+	min-width: 17em
+	}
+	.imgtext-container > .img {
+	flex: 2;
+	}
+}
+/* 제목과 하위제목(빨간 짧은 선으로 데코레이션) */
+.heading-decoration {
+	font-size: clamp(30px, 3vw, 40px);
+	min-height: 0vw;
+	font-weight: 400;
+	/* margin-top: 20px; */
+}
+
+.heading-decoration::after {
+	display: block;
+	content: '';
+	width: 160px;
+	height: 0px;
+	border-top: solid 1px #b72661;
+	margin-top: 0.6em;
+}
+
+.heading-decoration + p {
+	margin-top: 1em;
+	margin-bottom: 2em;
+	color: #707070;
+	font-family: 'Spoqa Han Sans Neo', sans-serif;
+	font-size: 18px;
+}
+
+.posts {
+	padding: var(--v-space) 0;
+	background-color: #f3f1ed;
+   }
+
+.heading {
+	position: absolute;
+	top: calc((var(--v-space) + 0.65em) * -1);
+	font-family: 'Spoqa Han Sans Neo', sans-serif;
+	font-size: clamp(40px, 5.2vw, 70px);
+    min-height: 0vw;
+	/*Safari에서는 min값이 없으면 오류가 나기때문에 일단 설정함.0이라서 vw, vh뭘써도 노상관*/
+	font-weight: 300;
+}
+
+.heading span {
+	display: block;
+	color: #666666;
+	font-size: 18px;
+}
+
+.posts-container {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 32px 25px; /*상하/좌우*/
+	/*row만 gap을 만들때: row-gap, 컬럼만 gap을 만들때 column-gap*/
+}
+
+@media (min-width: 768px) {
+	.posts-container {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+
+.post a {
+	/*h3-p-img를 모두 링크화시킬때 빈공간도 같이 링크구역으로 만들기위해 block지정*/
+	display: block;
+}
+
+.post h3 {
+	margin: 1em 0 0.5em;
+	font-size: clamp(12px, 2vw, 20px);
+	min-height: 0vw;
+}
+
+.post p {
+	max-width: 20em;
+	font-size: clamp(10px, 1.6vw, 14px);
+	min-height: 0vw;
+}
+
+.post img {
+	aspect-ratio: 3 / 2;
+	object-fit: cover;	/*-fit: 비율조정으로 남는부분은 crop*/
+	width: 100%;
+}
+
+/*구버전 브라우저의 경우 aspect-ratio호환이 되지않아 180px로 높이강제조정*/
+@supports not (aspect-ratio: 3 / 2) {	
+	.post img {
+		height: 180px;
+	}
+}
+
+.imageRotate {
+	animation: rotate_image 6s ease-in-out infinite;transform-origin: 50% 50%;
+	width: clamp(45px, 6vw, 65px);
+}
+
+@keyframes rotate_image{ 100% { transform: rotate(360deg); } }
+
+.footer {
+	padding: 70px 0;
+	background-color: #ffffff;
+	color: #707070;
+	font-size: 13px;
+}
+
+.footer-container {
+	display: grid;
+	gap: 50px;
+	justify-items: center;
+}
+
+@media (min-width: 768px) {
+	.footer-container {
+	grid-template-columns: auto auto;
+	grid-template-rows: auto auto auto;
+	gap: 20px;
+	}
+	.footer-container > .footer-sns {
+		grid-column: 2;
+		grid-row: 1 / 4;
+	}
+	.footer-container > .footer-site {
+		margin-bottom: 20px;
+	}
+	
+	.footer-container > *:not(.footer-sns) {
+		justify-self: start;
+	}
+	
+	.footer-container > .footer-sns {
+		grid-column: 2;
+		grid-row: 1 / 4;
+		justify-self: end;
+		align-self: center;
+	}
+}
+
+.footer-sns {
+	display: flex;
+	gap: 24px;
+	font-size: 24px;
+}
+
+.footer-sns a {
+	display: grid;
+	place-items: center;
+	align-items: start;
+	width: 36px;
+	aspect-ratio: 1/1;
+	background-color: #cccccc;
+	color: #ffffff;
+	/* border-radius: 18px; */
+	clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%);
+}
+
+/*구버전 브라우저의 경우 aspect-ratio호환이 되지않아 36px로 높이강제조정*/
+@supports not (aspect-ratio: 1 / 1) {
+	.footer-sns a {
+	height: 36px;
+	}
+}
+
+.footer-menu {
+	display: flex;
+	flex-wrap: wrap;	/*요소가 길어지면 자동줄바꿈(모바일에서 유용)*/
+	justify-content: center;
+	gap: 20px;
+}
+
+/* article.html */
+
+.entry {
+	padding-bottom: var(--v-space);
+	background-color: #ffffff;
+}
+
+.entry-img img {
+	width: 100%;
+	max-height: 400px;
+	object-fit: cover;	/* 이미지 크롭 */
+	margin-bottom: calc(var(--v-space) * 2 / 3);
+}
+
+.entry .w-container {
+	max-width: 720px;
+}
+
+.entry .heading-decoration {
+	font-size: clamp(30px, 6.25vw, 48px);
+}
+
+.entry-container {
+	font-size: clamp(16px, 2.4vw, 18px);
+}
+
+.entry-container :where(h1,h2,h3,h4,h5,h6,p,figure, ul) {
+	margin-top: revert;
+	margin-bottom: revert;
+	padding: revert;
+	list-style: revert;
+	/* revert: 설정값(css파일 최상단 margin:0, padding:0) 말고 디폴트값으로 되돌림 */
+}
+
+.entry-container > :first-child {
+	margin-top: 0;
+}
+
+.entry-container > :last-child {
+	margin-bottom: 0;
+}
+
+.plans {
+	padding: var(--v-space) 0;
+	background-color: #e9e5e9;
+}
+
+.plans-container {
+	display: grid;
+	gap: 27px;
+}
+
+
+@media (min-width: 768px) {
+	.plans-container {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+.plan {
+	display: flex;
+	flex-direction: column;
+	padding: 60px 27px;
+	border-radius: 20px;
+	background-color: #ffffff;
+}
+
+.plan h3 {
+	font-size: 38px;
+	font-weight: 400;
+	margin-bottom: 38px;
+	font-family: 'Spoqa Han Sans Neo', sans-serif;
+}
+
+.plan .price {
+	margin-top: auto;
+	/* 여백은 그리드 사이즈에 맞춰 최대로 */
+	margin-bottom: 22px;
+	font-size: 26px;
+	font-weight: bold;
+}
+
+.plan .btn {
+	width: auto;
+}
